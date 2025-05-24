@@ -14,82 +14,80 @@
 
 html {
     scroll-behavior: smooth;
-    /* لإعطاء انحناء للخلفية العامة إذا كانت الصفحة أقصر من الشاشة */
-    /* background: linear-gradient(145deg, #B89B71 0%, #A07D47 100%); */
-    /* يمكنك ترك هذا إذا كنت تريد الخلفية على html أيضًا */
+    height: 100%;
 }
 
 body {
     min-height: 100vh;
+    /* max-height: 100vh; /* قد يسبب مشاكل إذا تجاوز المحتوى قليلاً */
     background: linear-gradient(145deg, #B89B71 0%, #A07D47 100%);
     color: #3D3D3D;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14.5px; 
+    line-height: 1.45; 
     display: flex;
     flex-direction: column;
     align-items: center; 
-    justify-content: center; 
-    padding: 15px 10px;
-    overflow-x: hidden;
-    /* إضافة border-radius لخلفية الصفحة إذا كانت مرئية */
-    /* هذا التأثير يظهر بشكل أفضل إذا كان هناك محتوى خارج الـ stack الرئيسي */
-    /* أو إذا كانت الصفحة نفسها أقصر من نافذة المتصفح */
-    /* border-radius: 20px; /* <<<<<<< انحناء لخلفية الصفحة نفسها (Body) */
-    /* ملاحظة: هذا قد لا يكون مرئيًا دائمًا إذا كان المحتوى يملأ الشاشة */
+    justify-content: space-between; 
+    padding: 8px; 
+    overflow: hidden; 
 }
 
 /* === Main Page Structure: Navbar, Page Container, Footer === */
 
 #navbar {
     width: 100%;
-    max-width: 460px; /* <<<<<<< تكبير طفيف للعرض الكلي */
-    background: rgba(35, 35, 35, 0.96); 
-    backdrop-filter: blur(6px); 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
-    height: 48px; 
+    max-width: 430px; 
+    background: rgba(30, 30, 30, 0.97); 
+    backdrop-filter: blur(7px); 
+    box-shadow: 0 1.5px 6px rgba(0,0,0,0.28); 
+    height: 42px; 
     display: flex;
     justify-content: center; 
-    border-radius: 16px; /* <<<<<<< زيادة طفيفة في انحناء الزوايا */
+    border-radius: 10px; 
     z-index: 1000;
-    margin-bottom: 12px; /* <<<<<<< زيادة طفيفة في المسافة */
-    transition: all 0.3s ease-out;
+    /* margin-bottom: 6px; */
+    transition: all 0.2s ease-out;
+    flex-shrink: 0; 
 }
 #navbar-content-wrapper {
     width: 100%;
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 0 10px; 
+    padding: 0 6px; 
 }
 #navbar a {
-    padding: 0 12px; 
-    line-height: 48px; 
-    color: #DDC5A0; 
+    padding: 0 8px; 
+    line-height: 42px; 
+    color: #E0CAA5; 
     text-decoration: none;
     font-weight: 600; 
-    font-size: 0.82em; 
-    transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
-    border-radius: 8px; 
+    font-size: 0.75em; 
+    transition: color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+    border-radius: 5px; 
 }
 #navbar a:hover, #navbar a.active {
-    background-color: rgba(176, 141, 87, 0.25); 
+    background-color: rgba(176, 141, 87, 0.3); 
     color: #FFFFFF;
-    transform: translateY(-1px);
+    transform: translateY(-0.5px);
 }
 #navbarReverse { display: flex; } 
 
 
 .page-container {
     width: 100%; 
-    max-width: 460px; /* <<<<<<< تكبير طفيف للعرض الكلي */
+    max-width: 430px; 
     display: flex;
     flex-direction: column;
     background-color: #FFFFFF; 
-    box-shadow: 0 7px 28px rgba(0,0,0,0.25); /* تعديل الظل */
-    border-radius: 16px; /* <<<<<<< زيادة طفيفة في انحناء الزوايا */
-    border: 1px solid #E0E0E0; /* تعديل لون الحدود ليكون أفتح قليلاً */
-    overflow: hidden; 
-    flex-shrink: 0; 
+    box-shadow: 0 4px 18px rgba(0,0,0,0.2); 
+    border-radius: 10px; 
+    border: 1px solid #EAEAEA; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+    flex-grow: 1; 
+    flex-shrink: 1; 
+    margin: 6px 0; 
 }
 
 .main {
@@ -97,242 +95,290 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 1; 
-    background-color: #FFFFFF;
-	border-radius:20px;
-	/* <<<<<<< الخلفية البيضاء الآن لـ .main */
+    background-color: #FFFFFF; /* <<<<<<< الخلفية البيضاء الآن لـ .main */
     /* border-radius: inherit; /*  يمكن أن يرث الانحناء من .page-container إذا لم يكن هناك padding */
     /* أو إذا كان page-container له padding وتريد main أن يكون له انحناء خاص به: */
     /* border-radius: 12px; /* انحناء أقل قليلاً من page-container */
     /* box-shadow: inset 0 0 10px rgba(0,0,0,0.03); /* ظل داخلي خفيف (اختياري) */
 }
-.ie-fixMinHeight { display: flex; flex-grow: 1; flex-direction: column; }
+.ie-fixMinHeight { display: flex; flex-direction: column; }
 
 .wrap {
-    padding: 22px 20px; /* <<<<<<< زيادة طفيفة في الحشوة */
+    padding: 10px 12px; 
     width: 100%; 
 }
 .custom-wrap { 
-    padding: 22px 20px;
-    margin-bottom: 18px; /* <<<<<<< زيادة طفيفة في الهامش */
+    padding: 10px 12px;
+    margin-bottom: 8px; 
 }
 
 /* === Animations & Transitions === */
 @keyframes fadeInSmooth {
-    from { opacity: 0; transform: translateY(10px) scale(0.99); }
+    from { opacity: 0; transform: translateY(6px) scale(0.998); }
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 .animated.fadeIn {
     animation-name: fadeInSmooth;
-    animation-duration: 0.65s;
+    animation-duration: 0.5s; 
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* === Typography & Headings === */
+/* === Typography & Headings (Login Page Focus) === */
 .logo-title {
     text-align: center;
-    color: #403020; 
+    color: #382818; 
     font-weight: 700; 
-    margin-bottom: 8px; 
-    letter-spacing: 0.1px;
+    margin-bottom: 3px; 
+    letter-spacing: 0.05px;
 }
 h1.logo-title {
-    font-size: 2.05em; 
-    text-shadow: none; 
+    font-size: 1.6em; 
+    margin-top: 2px; 
 }
 h2.logo-title.page-subtitle {
-    font-size: 1.12em; 
-    color: #5C4B3A; 
-    margin-bottom: 16px; 
+    font-size: 0.9em; 
+    color: #504030; 
+    margin-bottom: 6px; 
     font-weight: 400; 
 }
 
-/* === Marriott Banner (Login Page) === */
+/* === Marriott Banner (Login Page Focus) === */
 .marriott-banner {
-    height: 175px; /* <<<<<<< تكبير ارتفاع البانر */
-    background-image: url('img/hotel_slideshow/slide1.jpg'); 
+    height: 90px; 
+    background-image: url('img/hotel_slideshow/slide1.jpg'); /* Fallback, JS overrides */
     background-size: cover;
-    background-position: center 50%; /* توسيط الصورة بشكل أفضل */
-    border-radius: 12px; /* <<<<<<< زيادة طفيفة في انحناء الزوايا */
-    margin-bottom: 18px; /* <<<<<<< زيادة طفيفة في الهامش */
+    background-position: center 50%; 
+    border-radius: 6px; 
+    margin-bottom: 6px; 
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* تعديل الظل */
-    transition: opacity 1s ease-in-out, transform 0.3s ease-out;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08); 
+    transition: opacity 1s ease-in-out, transform 0.2s ease-out;
+    flex-shrink: 0; 
 }
 .marriott-banner:hover {
-    transform: scale(1.02); 
+    transform: scale(1.005); 
 }
 .marriott-banner::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.6) 100%); /* تعديل التدرج */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);
     z-index: 1;
-    transition: background 0.3s ease;
+    transition: background 0.2s ease;
 }
 .marriott-banner:hover::before {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.6) 100%);
 }
 .marriott-banner-text {
-    position: absolute;
-    bottom: 10px; 
-    right: 10px; 
-    color: white;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.85); /* تعديل ظل النص */
-    z-index: 2;
-    padding: 7px 11px; /* <<<<<<< زيادة طفيفة في حشوة النص */
-    border-radius: 8px; 
-    background-color: rgba(0,0,0,0.45);
-    transition: background-color 0.3s ease;
+    bottom: 5px; 
+    right: 5px; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    background-color: rgba(0,0,0,0.5);
+    color: white; /* Ensure text is white */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Ensure text shadow */
+    z-index: 2; /* Ensure text is above overlay */
 }
-.marriott-banner:hover .marriott-banner-text {
-    background-color: rgba(0,0,0,0.6);
-}
-.marriott-banner-text h2 { font-size: 1.3em; margin-bottom: 2px; color:white; text-align:right; font-weight: 700; }
-.marriott-banner-text p { font-size: 0.85em; color:#f5f5f5; text-align:right; opacity: 0.98; }
+.marriott-banner-text h2 { font-size: 0.95em; margin-bottom: 0px; color:white; text-align:right; font-weight: 700; }
+.marriott-banner-text p { display: none; }
 
 
-/* === Forms & Inputs === */
+/* === Forms & Inputs (Login Page Focus) === */
 form {
     width: 100%;
-    margin-bottom: 10px; 
+    margin-bottom: 3px; 
 }
 
 label {
     position: relative; 
     display: block; 
-    margin-bottom: 12px; /* <<<<<<< زيادة طفيفة في الهامش */
+    margin-bottom: 6px; 
 }
 
 input[type="password"], input[type="text"], input[type="tel"] {
     width: 100%;
-    border: 1.5px solid #E0E0E0; /* تعديل لون الحدود */
-    background-color: #FDFDFD; /* تعديل لون الخلفية */
-    height: 46px; /* <<<<<<< زيادة طفيفة في الارتفاع */
-    padding: 10px 18px 10px 45px; /* <<<<<<< تعديل الحشوة لتناسب الأيقونة */
-    border-radius: 23px; /* <<<<<<< زيادة طفيفة في انحناء الزوايا */
-    transition: border-color .2s ease, box-shadow .2s ease, background-color 0.2s ease;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.06); 
-    font-size: 0.95em; /* <<<<<<< زيادة طفيفة في حجم الخط */
+    border: 1px solid #EDEDED; 
+    background-color: #FDFDFD; 
+    height: 38px; 
+    padding: 7px 12px 7px 36px; 
+    border-radius: 19px; 
+    font-size: 0.85em; 
     color: #333333; 
     text-align: right; 
+    transition: border-color .2s ease, box-shadow .2s ease;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
 }
 .ico, .ico2 { 
     position: absolute;
     top: 50%;
-    left: 16px; /* <<<<<<< تعديل موقع الأيقونة */
+    left: 10px; 
     transform: translateY(-50%);
-    height: 16.5px; /* <<<<<<< تكبير الأيقونة قليلاً */
-    opacity: 0.65; /* زيادة وضوح الأيقونة */
+    height: 13px; 
+    opacity: 0.5;
     transition: opacity 0.15s ease;
 }
 label:hover .ico, label:hover .ico2 {
-    opacity: 0.85;
+    opacity: 0.7;
 }
 
 input[type="password"]::placeholder, 
 input[type="text"]::placeholder, 
 input[type="tel"]::placeholder {
-  color: #808080; /* تعديل لون النص المؤقت */
+  color: #888888; 
   opacity: 1; 
 }
 input[type="password"]:-ms-input-placeholder, 
 input[type="text"]:-ms-input-placeholder,
 input[type="tel"]:-ms-input-placeholder {
-  color: #808080;
+  color: #888888;
 }
 input[type="password"]::-ms-input-placeholder, 
 input[type="text"]::-ms-input-placeholder,
 input[type="tel"]::-ms-input-placeholder {
-  color: #808080;
+  color: #888888;
 }
 
 input[type="password"]:focus, input[type="text"]:focus, input[type="tel"]:focus {
-    border-color: #A88C65; /* تعديل لون التركيز */
-    background-color: #FFFFFF;
-    box-shadow: 0 0 0 3.5px rgba(176, 141, 87, 0.2), inset 0 1px 2px rgba(0,0,0,0.03); /* تعديل ظل التركيز */
+    border-color: #B08D57;
+    box-shadow: 0 0 0 2.5px rgba(176, 141, 87, 0.15), inset 0 1px 1.5px rgba(0,0,0,0.02); 
 }
 
 
-/* === Buttons === */
+/* === Buttons (Login Page Focus) === */
 input[type="submit"], .trial {
+	margin: 3px auto; 
+    height: 38px; 
+    border-radius: 19px; 
+    font-size: 0.9em; 
     background: linear-gradient(135deg, #B89B71, #A07D47); 
     color: #FFFFFF;
     border: none;
     cursor: pointer;
     text-align: center;
     width: 100%;
-	margin: 8px auto; 
-    height: 46px; /* <<<<<<< زيادة طفيفة في الارتفاع */
-    border-radius: 23px; /* <<<<<<< زيادة طفيفة في انحناء الزوايا */
-    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-    font-size: 1em; 
+    transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-weight: 600;
-    letter-spacing: 0.4px; 
-    box-shadow: 0 3px 8px rgba(160, 125, 71, 0.35), 0 1px 2px rgba(0,0,0,0.1); 
-    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    letter-spacing: 0.3px; 
+    box-shadow: 0 2px 6px rgba(160, 125, 71, 0.3), 0 0.5px 1px rgba(0,0,0,0.07); 
+    text-shadow: 0 0.5px 1px rgba(0,0,0,0.07);
 }
 input[type="submit"]:hover, .trial:hover {
     background: linear-gradient(135deg, #C0A37A, #B08D57); 
-    transform: translateY(-2px) scale(1.018); /* تعديل تأثير التحويم */
-    box-shadow: 0 5px 12px rgba(160, 125, 71, 0.45), 0 2px 4px rgba(0,0,0,0.15); 
+    transform: translateY(-1px) scale(1.01); 
+    box-shadow: 0 3px 8px rgba(160, 125, 71, 0.38), 0 1px 2.5px rgba(0,0,0,0.1); 
 }
 input[type="submit"]:active, .trial:active {
-    transform: translateY(0px) scale(0.98); 
-    box-shadow: 0 1px 4px rgba(160, 125, 71, 0.3), inset 0 1px 3px rgba(0,0,0,0.1);
+    transform: translateY(0px) scale(0.99); 
+    box-shadow: 0 1px 2.5px rgba(160, 125, 71, 0.25), inset 0 1px 2px rgba(0,0,0,0.07);
 }
-.trial { display: block; line-height: 46px; padding: 0; }
+.trial { display: block; line-height: 38px; padding: 0; }
 
-/* === Tables === */
-table {
-    border-collapse: separate; 
-    border-spacing: 0;
-    width: 100%;
-    margin-bottom: 15px; 
-    border: 1px solid #E8E8E8; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+/* === iOS Toggle Checkbox (Login Page Focus) === */
+#toggles {
+    margin: 5px auto 7px auto; 
+    transform: scale(0.9); 
 }
-table th, table td {
-    padding: 10px 12px; 
-    text-align: right; 
-    border-bottom: 1px solid #F0F0F0; 
+.ios-toggle { height:0; width:0; opacity:0; border:none; outline:none; position: absolute; }
+.checkbox-label {
+    display:block; position:relative;
+    padding:0; margin-bottom:0; 
+    font-size:8px; 
+    line-height:14px; 
+    width:38px; height:20px; 
+    border-radius:10px; 
+    background:#E0E0E0; 
+    cursor:pointer;
+    transition:.18s cubic-bezier(0.25, 0.8, 0.25, 1); 
 }
-table th {
-    background-color: #FAFAFA; 
-    color: #A07D47; 
+.checkbox-label:before { 
+    content:''; display:block; position:absolute; z-index:1;
+    height:16px; width:16px; 
+    border-radius:50%;
+    top:2px; left:2px; 
+    background:white;
+    box-shadow:0 1px 2px rgba(0,0,0,.25); 
+    transition:.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.checkbox-label:after{ 
+    content:attr(data-off);
+    display:block; position:absolute; z-index:0;
+    top:0; left:0; right:1.5px; 
+    text-align:right; 
+    padding: 3px 0; 
+    height:100%; width:auto; 
+    color:#707070;
+    white-space:nowrap;
     font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.8em; 
-    letter-spacing: 0.5px;
+    transition:.18s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-table tr:first-child th:first-child { border-top-left-radius: 9px; } 
-table tr:first-child th:last-child { border-top-right-radius: 9px; }
-table tr:last-child td { border-bottom: none; }
-table tr:last-child td:first-child { border-bottom-left-radius: 9px; }
-table tr:last-child td:last-child { border-bottom-right-radius: 9px; }
-
-table td {
-    color: #444444; 
-    background-color: #FFFFFF; 
-    font-size: 0.9em; 
-    transition: background-color 0.15s ease;
+.ios-toggle:checked + .checkbox-label {
+    background:#B08D57; 
 }
-table tbody tr:hover td {
-    background-color: #FAF0E6; 
+.ios-toggle:checked + .checkbox-label:before {
+    left:calc(100% - 18px); 
+    box-shadow:0 1px 2.5px rgba(0,0,0,.3);
+}
+.ios-toggle:checked + .checkbox-label:after {
+    content:attr(data-on);
+    left:auto; right:18px; 
+    text-align: left;
+    color:#FFFFFF; 
 }
 
-/* Status, Logout, Alogin Pages (.wrap specific styling) */
+/* === News iframe (Login Page Focus) === */
+iframe.price {
+    margin: 5px 0; 
+    height: 24px; 
+    flex-shrink: 0; 
+    border-radius: 5px;
+    border: 1px solid #E8E8E8; 
+    box-shadow: 0 0.5px 2.5px rgba(0,0,0,0.08); 
+}
+
+/* === Footer === */
+.footer {
+    width: 100%;
+    max-width: 430px; 
+	text-align: center;
+    padding: 6px 0; 
+    background: rgba(30, 30, 30, 0.97); 
+    backdrop-filter: blur(7px);
+    color: #A8A8A8; 
+    font-size: 0.68em; 
+    line-height: 1.2; 
+    border-radius: 10px; 
+    box-shadow: 0 -1px 6px rgba(0,0,0,0.28); 
+    transition: all 0.2s ease-out;
+    flex-shrink: 0; 
+    height: 36px; 
+}
+.footer-content-wrapper {
+    width: 100%;
+    padding: 0 6px;
+}
+.footer table { 
+    margin: 0 auto; border: none; box-shadow: none; background: none; width: auto;
+}
+.footer table td {
+    background: none !important; border: none !important; padding: 1.5px; color: #C0C0C0; text-align: center;
+}
+.footer table td font { font-size: 1em !important; } 
+.footer a {color: #DDC5A0; text-decoration: none; font-weight: 600; transition: color 0.15s ease;}
+.footer a:hover {color: #FFFFFF; text-decoration: underline;}
+
+
+/* === Styles for other pages (bundles, sell-points, etc.) === */
+table { margin-bottom: 10px; font-size: 0.9em; border-radius: 7px;}
+table th, table td { padding: 6px 8px; }
+table th { font-size: 0.7em; }
+table td { font-size: 0.8em; }
+
 .status-page-wrap .wrap, .logout-page-wrap .wrap, .alogin-wrap .wrap {
-    background-color: rgba(40, 40, 40, 0.92) !important; /* تعديل الشفافية */
-    backdrop-filter: blur(5px); 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.38); /* تعديل الظل */
-    padding: 18px 15px; 
-    border-radius: 12px; 
-    margin: 0; 
-    border: 1px solid rgba(255,255,255,0.12); 
+    padding: 10px 8px; border-radius: 8px;
+    background-color: rgba(40,40,40,0.92) !important;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 .status-page-wrap .wrap .logo-title, 
 .logout-page-wrap .wrap .logo-title,
@@ -342,345 +388,65 @@ table tbody tr:hover td {
 .alogin-wrap .wrap p.info,
 .status-page-wrap .wrap h2.status-greeting, 
 .logout-page-wrap .wrap p.info {
-    color: #F8F8F8 !important; 
-}
-.status-page-wrap .wrap h2.status-greeting, .logout-page-wrap .wrap p.info { font-size: 0.95em; margin-bottom: 12px;}
-
-.status-page-wrap .wrap table, .logout-page-wrap .wrap table { 
-    border-color: rgba(255,255,255,0.28);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    border-radius: 8px; 
-}
-.status-page-wrap .wrap table td, .logout-page-wrap .wrap table td { 
     color: #F0F0F0 !important; 
-    background-color: rgba(255,255,255,0.1) !important; 
-    border-bottom: 1px solid rgba(255,255,255,0.22) !important; 
-}
-.status-page-wrap .wrap table th, .logout-page-wrap .wrap table th { 
-    background-color: rgba(255,255,255,0.15) !important; 
-    color: #FFF5E1 !important; /* لون أفتح للرؤوس */
-    border-bottom: 1px solid rgba(255,255,255,0.28) !important; 
-}
-.status-page-wrap .wrap table tr:hover td, .logout-page-wrap .wrap table tr:hover td { 
-    background-color: rgba(255,255,255,0.18) !important; 
-}
-.alogin-wrap .wrap p.info a { color: #FFF5E1; font-weight: 600; text-decoration: underline;}
-.status-logout-btn { margin-top: 10px !important; margin-bottom: 5px !important; height: 42px !important;}
-.status-logout-btn.final-logout { background: linear-gradient(135deg, #707070, #505050); }
-.status-logout-btn.final-logout:hover { background: linear-gradient(135deg, #787878, #585858); }
-
-
-/* === Sell Points Page === */
-p.sell-points {
-    background-color: #FFFFFF;
-    color: #403020; 
-    border: 1px solid #EAEAEA;
-    border-right: 3.5px solid #B08D57; 
-    padding: 9px 13px; 
-    margin: 0 auto 9px auto; 
-    border-radius: 8px; 
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    text-align: right; 
-    cursor: default;
-    width: 100%;
-    font-size: 0.9em; 
-}
-p.sell-points:hover {
-    background-color: #B08D57;
-    color: white;
-    border-color: #A07D47;
-    transform: translateX(-2px) scale(1.008); 
-    box-shadow: 0 3px 8px rgba(176,141,87,0.2);
 }
 
-/* === Alerts === */
-#alert-back3 {
-    position: fixed;
-    background-color: rgba(0,0,0,0.8); 
-    width: 100%; height: 100%;
-    top:0; bottom:0; right: 0; left: 0;
-    z-index: 1001; 
-    padding: 4%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    backdrop-filter: blur(4px); 
-}
-.alert3 {
-    position: relative;
-    padding: 20px 25px; 
-    background-color: #FFFFFF; 
-    color: #403020; 
-    transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    text-align: center;
-    direction: rtl;
-    width: 90%;
-    max-width: 400px; 
-    margin: 0 auto; 
-    opacity: 0; 
-    transform: translateY(15px) scale(0.96); 
-    font-size: 0.95rem; 
-	border-right: #B08D57 solid 5px; 
-	border-radius: 10px; 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35); 
-    border: 1px solid #E0E0E0; 
-}
-#alert-back3[style*="display: block;"] .alert3, 
-#alert-back3:not([style*="display: none;"]) .alert3 { 
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
+.status-page-wrap .wrap h2.status-greeting, .logout-page-wrap .wrap p.info { font-size: 0.85em; margin-bottom: 7px;}
+.status-logout-btn { margin-top: 6px !important; margin-bottom: 1px !important; height: 34px !important;} 
+.status-page-wrap .wrap table, .logout-page-wrap .wrap table { border-color: rgba(255,255,255,0.2); border-radius: 6px;}
+.status-page-wrap .wrap table td, .logout-page-wrap .wrap table td { color: #E0E0E0 !important; background-color: rgba(255,255,255,0.08) !important; border-bottom-color: rgba(255,255,255,0.18) !important;}
+.status-page-wrap .wrap table th, .logout-page-wrap .wrap table th { background-color: rgba(255,255,255,0.12) !important; color: #FADFB0 !important; border-bottom-color: rgba(255,255,255,0.22) !important;}
+.status-page-wrap .wrap table tr:hover td, .logout-page-wrap .wrap table tr:hover td { background-color: rgba(255,255,255,0.14) !important;}
+.alogin-wrap .wrap p.info a { color: #FADFB0;}
 
-.alert3.error { border-right-color: #E87070; } 
-.alert3.error strong { color: #D32F2F !important; }
+p.sell-points { padding: 5px 8px; margin: 0 auto 5px auto; font-size: 0.8em; border-radius: 5px; }
 
-.alert3 strong { 
-    color: #B08D57; 
-    font-size: 1.1em; 
-    display: block;
-    margin-bottom: 9px; 
-    font-weight: 600;
-}
-.alert3 #error-message-text {
-    font-size: 0.9em; 
-    line-height: 1.5; 
-}
-.closebtn3 {
-    position: absolute; 
-    top: 8px;
-    left: 9px; 
-    color: #B0B0B0; 
-    font-weight: bold;
-    font-size: 1.55rem; 
-    line-height: 1; 
-    cursor: pointer;
-    transition: color 0.15s ease, transform 0.15s ease;
-    padding: 5px;
-}
-.closebtn3:hover { color: #B08D57; transform: rotate(90deg) scale(1.1); }
+.alert3 { padding: 12px 16px; font-size: 0.85rem; border-radius: 7px; border-right-width: 4px; box-shadow: 0 6px 20px rgba(0,0,0,0.3);}
+.alert3 strong { font-size: 1em; margin-bottom: 5px; }
+.alert3 #error-message-text { font-size: 0.8em; }
+.closebtn3 { top: 6px; left: 7px; font-size: 1.4rem; padding: 3px;}
 
-/* === Footer === */
-.footer {
-    width: 100%;
-    max-width: 460px; /* <<<<<<< تكبير طفيف للعرض الكلي */
-	text-align: center;
-    padding: 12px 0; 
-    background: rgba(35, 35, 35, 0.96); 
-    backdrop-filter: blur(6px);
-    color: #B8B8B8; 
-    font-size: 0.8em; 
-    line-height: 1.35; 
-    margin-top: 12px; /* <<<<<<< زيادة طفيفة في المسافة */
-    border-radius: 16px; /* <<<<<<< زيادة طفيفة في انحناء الزوايا */
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.28); 
-    transition: all 0.3s ease-out;
-}
-.footer-content-wrapper {
-    width: 100%;
-    padding: 0 10px;
-}
-.footer table { 
-    margin: 0 auto; border: none; box-shadow: none; background: none; width: auto;
-}
-.footer table td {
-    background: none !important; border: none !important; padding: 2px; color: #C8C8C8; text-align: center;
-}
-.footer table td font { font-size: 1em !important; } 
-.footer a {color: #DDC5A0; text-decoration: none; font-weight: 600; transition: color 0.15s ease;}
-.footer a:hover {color: #FFFFFF; text-decoration: underline;}
+.contact-page-wrap .contact-info-box { padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; border-right-width: 3px;}
+.contact-page-wrap .info.bt span { font-size: 0.9em;}
+.contact-page-wrap .info.bt span:first-child { font-size: 1em; margin-bottom: 6px;}
+.contact-page-wrap .info.bt a.whatsapp-link { padding: 5px 10px; border-radius: 16px; font-size: 0.78em;}
+
+.block-page-wrap .gif img { width: 80px; margin-bottom: 10px; padding: 5px; border-width: 2.5px;}
+.contact-via-whatsapp { margin: 10px auto; padding: 6px 8px; font-size: 0.78em; border-radius: 6px;}
 
 
-/* === iOS Toggle Checkbox === */
-#toggles {
-    width:42px; 
-    margin:10px auto 15px auto; 
-    text-align:center;
-}
-.ios-toggle { height:0; width:0; opacity:0; border:none; outline:none; position: absolute; }
-.checkbox-label {
-    display:block; position:relative;
-    padding:0; margin-bottom:0; 
-    font-size:9px; 
-    line-height:16px; 
-    width:42px; height:22px; 
-    border-radius:11px; 
-    background:#E0E0E0; 
-    cursor:pointer;
-    transition:.2s cubic-bezier(0.25, 0.8, 0.25, 1); 
-}
-.checkbox-label:before { 
-    content:''; display:block; position:absolute; z-index:1;
-    height:18px; width:18px; 
-    border-radius:50%;
-    top:2px; left:2px; 
-    background:white;
-    box-shadow:0 1px 2.5px rgba(0,0,0,.28); 
-    transition:.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.checkbox-label:after{ 
-    content:attr(data-off);
-    display:block; position:absolute; z-index:0;
-    top:0; left:0; right:2px; 
-    text-align:right; 
-    padding: 3.5px 0; 
-    height:100%; width:auto; 
-    color:#707070;
-    white-space:nowrap;
-    font-weight: 600;
-    transition:.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.ios-toggle:checked + .checkbox-label {
-    background:#B08D57; 
-}
-.ios-toggle:checked + .checkbox-label:before {
-    left:calc(100% - 20px); 
-    box-shadow:0 1px 3px rgba(0,0,0,.35);
-}
-.ios-toggle:checked + .checkbox-label:after {
-    content:attr(data-on);
-    left:auto; right:20px; 
-    text-align: left;
-    color:#FFFFFF; 
-}
+/* === Minor Adjustments for Very Small Screens (Final Polish for no-scroll login) === */
+@media (max-width: 360px) { /* targeting screens like iPhone SE 1st gen height or smaller */
+    body { padding: 5px; font-size: 13.5px; line-height: 1.4; } 
+    #navbar { max-width: 100%; border-radius: 8px; height: 40px; box-shadow: 0 1px 5px rgba(0,0,0,0.25);} 
+    #navbar a { font-size: 0.68em; padding: 0 5px; line-height: 40px; border-radius: 4px;}
+    .page-container { max-width: 100%; border-radius: 8px; margin: 4px 0; box-shadow: 0 3px 15px rgba(0,0,0,0.18); border-width: 0.5px;}
+    .footer { max-width: 100%; border-radius: 8px; padding: 4px 0; font-size: 0.62em; height: 32px; box-shadow: 0 -1px 5px rgba(0,0,0,0.22);} 
 
-/* === News iframe (Login Page) === */
-iframe.price {
-    border: 1.5px solid #E0E0E0; 
-    border-radius: 8px; 
-    box-shadow: 0 1.5px 3.5px rgba(0,0,0,0.1); 
-    margin: 12px 0; 
-    height: 32px; 
-    transition: box-shadow 0.15s ease, border-color 0.15s ease;
-}
-iframe.price:hover {
-    box-shadow: 0 2px 6px rgba(176,141,87,0.25);
-    border-color: #D0D0D0;
-}
-
-/* === Contact Page Specifics === */
-.contact-page-wrap .contact-info-box {
-    background-color: #FFFFFF;
-    padding: 12px 15px; 
-    border-radius: 10px; 
-    border: 1px solid #EAEAEA;
-    border-right: 4px solid #B08D57; 
-    margin-bottom: 12px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.07); 
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-.contact-page-wrap .contact-info-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-.contact-page-wrap .info.bt span {
-    display: block;
-    margin-bottom: 5px; 
-    font-size: 0.95em; 
-    color: #403020; 
-}
-.contact-page-wrap .info.bt span:first-child {
-    font-weight: 600;
-    color: #B08D57;
-    font-size: 1.05em; 
-    margin-bottom: 8px; 
-}
-.contact-page-wrap .info.bt a.contact-link { color: #800020; font-weight: normal; }
-.contact-page-wrap .info.bt a.contact-link:hover { text-decoration: underline; color: #A0522D;}
-
-.contact-page-wrap .info.bt a.whatsapp-link {
-    display: inline-block;
-    padding: 7px 12px; 
-    background-color: #25D366; 
-    color: white !important;
-    border-radius: 18px; 
-    font-weight: 600;
-    transition: background-color 0.18s ease, transform 0.18s ease;
-    font-size: 0.85em; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.contact-page-wrap .info.bt a.whatsapp-link:hover {
-    background-color: #1DAA53;
-    transform: scale(1.03);
-}
-
-/* === Block Page Specifics === */
-.block-page-wrap .logo-title.page-subtitle { color: #D32F2F !important; font-weight: 600;}
-.block-page-wrap .info { color: #403020; font-size: 0.95em; } 
-.block-page-wrap .info span[count-down-span] {
-    color: #B08D57;
-    font-weight: 600;
-    font-size: 1.1em; 
-    display: inline-block;
-    margin-top: 2px; 
-    animation: pulse 1.4s infinite ease-in-out; 
-}
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1;}
-    50% { transform: scale(1.04); opacity: 0.75;}
-    100% { transform: scale(1); opacity: 1;}
-}
-.block-page-wrap .gif img {
-    border: 3px solid #B08D57; 
-    border-radius: 50%;
-    padding: 6px; 
-    background-color: rgba(255,255,255,0.96);
-    margin-bottom: 12px; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12); 
-    width: 100px; 
-    animation: spin 9s linear infinite; 
-}
-.gif { text-align: center; } 
-@keyframes spin { 100% { transform: rotate(360deg); } }
-
-
-/* === WhatsApp Link (Status Page) === */
-.contact-via-whatsapp {
-    text-align: center;
-    margin: 12px auto; 
-    padding: 8px 10px; 
-    background-color: rgba(255,255,255,0.2); 
-    border-radius: 8px; 
-    font-size: 0.85em; 
-    transition: background-color 0.18s ease;
-}
-.contact-via-whatsapp:hover {
-    background-color: rgba(255,255,255,0.28);
-}
-.contact-via-whatsapp span { display: block; color: #FFFFFF; margin-bottom: 3px; }
-.contact-via-whatsapp span:first-child{ font-weight: 600; }
-.contact-via-whatsapp a { color: #FFF5E1; font-weight: 600; text-decoration: underline; }
-
-
-/* === Minor Adjustments for Very Small Screens === */
-@media (max-width: 380px) { 
-    body { padding: 10px 5px; font-size: 14.5px; } 
-    #navbar { max-width: 100%; border-radius: 12px; margin-bottom: 8px; height: 45px;} 
-    #navbar a { font-size: 0.78em; padding: 0 9px; line-height: 45px;}
-    .page-container { max-width: 100%; border-radius: 12px; }
-    .footer { max-width: 100%; border-radius: 12px; padding: 9px 0; font-size: 0.72em; margin-top: 8px;} 
-
-    .wrap, .custom-wrap { padding: 18px 15px; } /* تعديل الحشوة */
-    h1.logo-title { font-size: 1.9em; } /* تعديل حجم الخط */
-    h2.logo-title.page-subtitle { font-size: 1.08em; margin-bottom: 14px; } /* تعديل */
-    .marriott-banner { height: 160px; margin-bottom: 14px; border-radius: 10px;} /* تعديل */
-    .marriott-banner-text h2 { font-size: 1.2em;}
-    .marriott-banner-text p { display: none;}
+    .wrap, .custom-wrap { padding: 7px 7px; } /* Further reduce padding */
+    h1.logo-title { font-size: 1.45em; margin-top: 1px; margin-bottom: 1px;}
+    h2.logo-title.page-subtitle { font-size: 0.82em; margin-bottom: 3px; }
+    .marriott-banner { height: 75px; margin-bottom: 3px; border-radius: 5px; box-shadow: 0 1px 5px rgba(0,0,0,0.07);} 
+    .marriott-banner-text h2 { font-size: 0.85em;}
 
     input[type="password"], input[type="text"], input[type="tel"] {
-        height: 44px; 
-        font-size: 0.9em; 
-        border-radius: 22px; 
-        padding-left: 42px; 
+        height: 36px; 
+        font-size: 0.78em; 
+        border-radius: 18px; 
+        padding: 5px 10px 5px 32px;
+        margin-bottom: 4px;
+        border-width: 1px;
     }
-    .ico, .ico2 { left: 15px; height: 16px; } 
+    .ico, .ico2 { left: 7px; height: 11px; } 
 
     input[type="submit"], .trial {
-        height: 44px; 
-        font-size: 0.92em; 
-        border-radius: 22px; 
+        height: 36px; 
+        font-size: 0.8em; 
+        border-radius: 18px; 
+        margin: 1px auto;
+        box-shadow: 0 1.5px 5px rgba(160, 125, 71, 0.3), 0 0.5px 1px rgba(0,0,0,0.06);
     }
-    iframe.price { height: 30px; margin: 10px 0; border-radius: 7px;}
-    .alert3 { padding: 18px 22px; max-width: 97%;} 
-    .block-page-wrap .gif img { width: 90px; } 
+    .trial { line-height: 36px; }
+    iframe.price { height: 20px; margin: 3px 0; border-radius: 4px; border-width: 1px;}
+    #toggles { margin: 3px auto 5px auto; transform: scale(0.8); }
 }
