@@ -654,7 +654,7 @@ iframe.price:hover {
 
 
 /* === Minor Adjustments for Very Small Screens === */
-@media (max-width: 380px) { 
+@media (max-width: 1500px) { 
     body { /* padding: 10px 5px; <--- تم إزالته هنا */ font-size: 14.5px; } 
     #navbar { max-width: 100%; border-radius: 12px; margin-bottom: 8px; margin-top: 8px; height: 45px;} /* تعديل margin-top هنا أيضا */
     #navbar a { font-size: 0.78em; padding: 0 9px; line-height: 45px;}
