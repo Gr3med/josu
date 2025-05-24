@@ -586,7 +586,7 @@ iframe.price {
 @media (max-width: 480px) {
     body {
         font-size: 14px; /* Base font size for mobile */
-        line-height: 1.5;
+        line-height: 3;
     }
     .wrap, .custom-wrap {
         width: 95%; /* More width usage */
