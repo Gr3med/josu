@@ -1,0 +1,125 @@
+<html>
+<head>
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+    $(endif)
+    <meta charset="utf-8">
+	<link rel="shortcut icon" href="img/favicon.png" />
+	<meta name="theme-color" content="#B08D57" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <title>معلومات الكرت - فندق ماريوت</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/mine.js"></script>
+    <script>
+        function openLogout() {
+            if (window.name !== 'hotspot_status') return true;
+            open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+            window.close();
+            return false;
+        }
+    </script>
+<!-- Start Cookies-->
+<script type=text/javascript>
+    function delrem(){
+     document.cookie = "uname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+   
+       }
+   </script>
+<!-- End Cookies-->
+</head>
+<body>
+
+<div class="ie-fixMinHeight">
+    <div class="main">
+        <div class="wrap animated fadeIn status-page-wrap">
+			<h1 class="logo-title">فندق ماريوت</h1>
+            <h2 class="logo-title page-subtitle">بيانات الاستخدام</h2>
+            
+            <h2 class="status-greeting">استخدم الانترنت فيما يرضي الله وتستفيد</h2>
+
+            <form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+                <table>
+				    <tr>
+                        <td>أسم المستخدم :</td>
+                        <td><script>var name = "$(username)"; var usrlen = name.length; var lastleter = '**' + name.substr(usrlen-3, 3); document.write(lastleter);</script></td>
+                    </tr>
+                    <tr>
+                        <td>عنوان الشبكة :</td>
+                        <td>$(ip)</td>
+                    </tr>
+                    <tr>
+                        <td>التحميل:</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicBytes("$(bytes-in)"));
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>الرفع:</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicBytes("$(bytes-out)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(if remain-bytes-total)
+                    <tr>
+                        <td>التحميل المتبقي: </td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicBytes("$(remain-bytes-total)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(endif)
+
+                    <tr>
+                        <td>الوقت المستهلك : </td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicTime("$(uptime)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(if session-time-left)
+                    <tr>
+                        <td>الوقت المتبقي : </td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicTime("$(session-time-left)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(endif)
+                </table>
+                $(if login-by-mac != 'yes')
+				<input type="hidden" name="erase-cookie" value="on">
+                <input type="submit" value="تسجيل الخروج" class="status-logout-btn">
+                <input onclick='return delrem();' type='submit' value="خروج نهائي" class="status-logout-btn final-logout">
+                $(endif)
+            </form>
+        </div>
+    </div>
+</div>
+ <p class="info bt contact-via-whatsapp">
+    <span>للتواصل المباشر عبر واتساب :</span>
+    <span><a href="https://wa.me/963000000000">اضغط هنا</a></span>
+</p>
+<div class="footer">
+    <table>
+        <tr>
+            <td align="center" valign="center">
+                <font>
+                    Developed & Powered By 
+                <a target="_blank" href="https://www.mhtrfsyria.com">
+                MHTRF SYRIA © 2022</a>
+                </font>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+	<link rel="shortcut icon" href="img/favicon.png" />
+	<meta name="theme-color" content="#B08D57" />
+    <title>تسجيل الخروج - فندق ماريوت</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/mine.js"></script>
+    <script>
+        function openLogin() {
+            if (window.name !== 'hotspot_logout') return true;
+            open('$(link-login)', '_blank', '');
+            window.close();
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+<div class="ie-fixMinHeight">
+    <div class="main">
+        <div class="wrap animated fadeIn logout-page-wrap">
+             <!-- <img src="img/logo.png" class="logo" alt="فندق ماريوت">-->
+			<h1 class="logo-title">فندق ماريوت</h1>
+            <h1 class="logo-title page-subtitle" style="color: #fff;">تم تسجيل خروجك بنجاح!</h1>
+            <p class="info" style="color: #f0f0f0;">شكرا لاستخدامك شبكتنا</p>
+            <br>
+            <form action="$(link-login)" name="login" onSubmit="return openLogin()">
+                <table>
+				    <tr>
+                        <td>أسم المستخدم :</td>
+                        <td><script>var name = "$(username)"; var usrlen = name.length; var lastleter = '**' + name.substr(usrlen-3, 3); document.write(lastleter);</script></td>
+                    </tr>
+                    <tr>
+                        <td>عنوان الشبكة :</td>
+                        <td>$(ip)</td>
+                    </tr>
+                    <tr>
+                        <td>التحميل:</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicBytes("$(bytes-in)"));
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>الرفع:</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicBytes("$(bytes-out)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(if remain-bytes-total)
+                    <tr>
+                        <td>التحميل المتبقي:</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicBytes("$(remain-bytes-total)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(endif)
+
+                    <tr>
+                        <td>الوقت المستهلك :</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicTime("$(uptime)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(if session-time-left)
+                    <tr>
+                        <td>الوقت المتبقي :</td>
+                        <td>
+                            <script type="text/javascript">
+                                document.write(toArabicTime("$(session-time-left)"));
+                            </script>
+                        </td>
+                    </tr>
+                    $(endif)
+                </table>
+                <input type="submit" value="تسجيل الدخول">
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- لا تحذف هذه السطور تحت اي ظروف حقوق الملكية  كود الملكية @@محترف سوريا@@أبو رواد-->
+<div class="footer">
+    <table>
+        <tr>
+            <td style="height: 20px; background: none; border: none;" align="center" valign="center">
+                <font style="font-size: 11px;color: #fff;" >
+                    Developed & Powered By 
+                <a target="_blank" style="color: #B08D57; font-size: 11px;" href="https://www.mhtrfsyria.com">
+                MHTRF SYRIA © 2022</a>
+                </font>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- /نهاية كود الملكية @@محترف سوريا@@أبو رواد-->
+</body>
+</html>

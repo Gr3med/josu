@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8">
+	<link rel="shortcut icon" href="img/favicon.png" />
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="-1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>تسجيل الدخول - فندق ماريوت</title>
+	<meta name="theme-color" content="#B08D57" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/hotCookie.min.js"></script>
+    <script src="js/hotInImprover.min.js"></script>
+    <script src="js/hotBlocker.min.js" login-error="$(error)" try-count="3" block-time="1"></script>
+</head>
+
+<body>
+<div id="navbar">
+    <a href="login.html">الرئيسية</a>
+    <a href="bundles.html">الباقات</a>
+    <span id="navbarReverse">
+            <a href="sell-points.html">نقاط البيع</a>
+            <a href="contact.html">اتصل بنا</a>
+        </span>
+</div>
+
+<div class="ie-fixMinHeight">
+    <div class="main">
+        <div class="wrap custom-wrap animated fadeIn">
+            
+            <div class="marriott-banner">
+                <!-- Slideshow images will be set by JavaScript -->
+                 <div class="marriott-banner-text">
+                    <h2>أهلاً وسهلاً بكم في فندق ماريوت</h2>
+                    <p>استمتع بخدمات إنترنت عالية السرعة</p>
+                </div>
+            </div>
+
+			<h1 class="logo-title">فندق ماريوت</h1>
+            <h2 class="logo-title page-subtitle">لخدمات الانترنت اللاسلكية</h2>
+            
+            <iframe class="price" src="news.html" width="100%" height="40px"></iframe>
+            
+            <form name="login" action="$(link-login-only)" method="post" onSubmit="return setPasswordInput()">
+                <input type="hidden" name="dst" value="$(link-orig)"/>
+                <input type="hidden" name="popup" value="true"/>
+               
+                <label>
+                    <img class="ico" src="img/user.png" alt="#"/>
+                    <input id='uname' name="username" type="text" value="$(username)" placeholder="أدخل رقم الكرت هنا" required improve-input rm-white-spaces to-lower to-arabic-numbers />
+                </label>
+				<label>
+                    <input id='paswd' type="hidden" placeholder="كلمة السر" name="password" >
+                </label>
+		        <div id="toggles">
+				   <input type="checkbox" name="checkbox1" id="remember" class="ios-toggle" value="ON" checked/>
+				   <label for="remember" class="checkbox-label" data-off="لا تتذكرني" data-on="تذكرني"></label>
+				</div>
+
+                <input onclick='return rem();' type="submit" value="تسجيل الدخول">
+                $(if trial == 'yes')
+                <a style="text-decoration: none;" href="$(link-login-only)?dst=$(link-orig-esc)&username=T-$(mac-esc)">
+                    <div class="trial" ><span>أنترنت مجانا لفترة محدودة</span></div>
+                </a>
+                $(endif)
+            </form>
+			$(if error)
+            <div id="alert-back3" onclick="document.getElementById('alert-back3').style.display = ('none')">
+                <div class="alert3 error">
+                    <span class="closebtn3" onclick="document.getElementById('alert-back3').style.display = ('none')"><strong>×</strong></span>
+                    <strong>تحذير!</strong> 
+                    <span id="error-message-text"><script type="text/javascript">
+                        var error = "$(error)";
+                        if (error == "simultaneous session limit reached") {
+                        document.write("لا يمكن تسجيل الدخول أكثر من مرة");
+                        }
+                        else if (error == "invalid username or password") {
+                        document.write("خطأ في إسم المستخدم او كلمة المرور حاول مرة اخرى");
+                        }
+                        else if (error == "access denied at this time") {
+                        document.write("بطاقة سهرة لا يمكن استخدامها في هذا الوقت");
+                        }
+                        else if (error == "uptime limit reached") {
+                        document.write("عذرا لقد انتهى الوقت المتاح لك..");
+                        }
+                        else if (error == "invalid password") {
+                        document.write("تأكد من كتابة كلمة المرور بشكل صحيح");
+                        }
+                        else if (error == "no more sessions are allowed for user $(username)") {
+                        document.write("لا يمكن تسجيل الدخول اكثر من مرة");
+                        }
+                        else if (error == "no valid profile found") {
+                        document.write("لقد انتهت صلاحية هذه البطاقة");
+                        }
+                        else if (error == "transfer limit reached") {
+                        document.write("لا يمكنك تسجيل الدخول , انتهى رصيد هذه البطاقة");
+                        }
+                        else if (error == "user $(username) has reached traffic limit") {
+                        document.write("لا يمكنك تسجيل الدخول , انتهى رصيد هذه البطاقة");
+                        }
+                        else if (error == "invalid Calling-Station-Id") {
+                        document.write("هذا الحساب مقترن بجهاز آخر ");
+                        }
+                        else if (error == "user $(username) is not allowed to log in from this MAC address") {
+                        document.write("هذا الحساب مقترن بجهاز آخر");
+                        }
+                        else if(error.search("not found") != -1) {
+                        document.write("اسم المستخدم غير موجود تأكد من كتابته بشكل صحيح");
+                        }
+                        else if (error == "radius timeout") {
+                        document.write("عزيزي المشترك نعتذر عن انقطاع الخدمة بسبب الصيانة");
+                        }
+                        else document.write("$(error)")
+                        </script>
+                    </span>
+                </div>
+            </div>
+            $(endif)
+
+        </div>
+        <script type="text/javascript">
+            document.login.username.focus();
+
+            // Slideshow for Marriott Banner
+            document.addEventListener('DOMContentLoaded', function() {
+                const banner = document.querySelector('.marriott-banner');
+                if (banner) {
+                    const images = [
+                        // *******************************************************************
+                        // ** يرجى استبدال هذه الروابط بروابط صور فندق ماريوت الفعلية **
+                        // *******************************************************************
+                        'img/hotel_slideshow/slide1.jpg', // مثال: 'img/hotel1.jpg'
+                        'img/hotel_slideshow/slide2.jpg', // مثال: 'img/hotel2.jpg'
+                        'img/hotel_slideshow/slide3.jpg', // مثال: 'img/hotel3.jpg'
+                        'img/hotel_slideshow/slide4.jpg'  // مثال: 'img/hotel4.jpg'
+                        // تأكد من أن هذه الصور موجودة في المسار الصحيح في مجلد img
+                        // أو استخدم روابط URL كاملة إذا كانت الصور على الإنترنت
+                    ];
+                    let currentImageIndex = 0;
+
+                    // Preload images
+                    images.forEach(src => {
+                        const img = new Image();
+                        img.src = src;
+                    });
+                    
+                    // Function to change image
+                    function changeBannerImage() {
+                        banner.style.opacity = '0'; // Start fade out
+                        setTimeout(() => {
+                            currentImageIndex = (currentImageIndex + 1) % images.length;
+                            banner.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+                            banner.style.opacity = '1'; // Fade in
+                        }, 1000); // Wait for fade out to complete (matches CSS transition)
+                    }
+
+                    // Set initial image
+                    banner.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+                    banner.style.opacity = '1';
+
+
+                    setInterval(changeBannerImage, 6000); // Change image every 6 seconds (1s fade + 5s display)
+                }
+            });
+        </script>
+        <div>
+            <p class="info bt contact-via-whatsapp">
+                <span>للتواصل المباشر عبر واتساب :</span>
+                <span><a href="https://wa.me/963000000000">اضغط هنا</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <table>
+        <tr>
+            <td style="height: 20px; background: none; border: none;" align="center" valign="center">
+                <font>
+                    Developed & Powered By 
+                <a target="_blank" href="https://www.mhtrfsyria.com">
+                MHTRF SYRIA © 2022</a>
+                </font>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

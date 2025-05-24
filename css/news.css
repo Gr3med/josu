@@ -1,0 +1,47 @@
+﻿@import url(../fonts/Almarai.css);
+
+body, html { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Almarai, sans-serif, Arial;
+    overflow: hidden; /* Prevent scrollbars in iframe */
+}
+
+.news {
+    background: #B08D57; 
+    color: #FFFFFF; 
+    font-size: 13px; /* Slightly smaller for mobile iframe */
+    width: 100%;
+    height: 100%;
+    display: flex; 
+    align-items: center;
+    overflow: hidden; 
+    padding: 0 3px; 
+    box-sizing: border-box;
+}
+
+.news marquee {
+    color: #FFFFFF !important; 
+    font-weight: normal;
+    display: flex; 
+    align-items: center;
+    white-space: nowrap; /* Ensure text stays on one line */
+}
+
+.news img {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px; 
+    height: 18px; /* Smaller image in ticker */
+    width: auto;
+}
+
+.news a { 
+    color: #FFD700; 
+    font-weight:bold;
+    text-decoration: none;
+}
+.news a:hover {
+    text-decoration: underline;
+}
