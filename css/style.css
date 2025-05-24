@@ -641,3 +641,14 @@ iframe.price {
     iframe.price { height: 28px; }
     .footer { font-size: 0.7em; padding: 6px 0;}
 }
+.marriott-banner {
+    /* ... other styles ... */
+    /* margin: 0 0 12px 0; /* هذا يجعله داخل حشوة .wrap */
+    /* استخدم هذا إذا أردت أن يمتد لحواف page-container: */
+    margin: -15px -12px 12px -12px; /* (يطرح قيمة padding من .wrap الحالي) */
+    /* تأكد من أن قيم الهوامش السالبة تطابق قيم padding الخاصة بـ .wrap */
+    border-radius: 0; /* أو احتفظ بالـ border-radius إذا كان page-container له انحناء */
+    /* إذا كان page-container له border-radius, قد تحتاج لجعل الزوايا العلوية للبانر منحنية فقط: */
+    /* border-top-left-radius: 15px; */ /* قيمة border-radius لـ page-container */
+    /* border-top-right-radius: 15px; */
+}
